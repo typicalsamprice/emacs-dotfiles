@@ -8,7 +8,7 @@
 
 (load-file "simpc-mode.el")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16))
+(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 18))
 
 (setq doom-theme 'doom-molokai)
 
@@ -20,3 +20,5 @@
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 (add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
+
+(add-hook! 'rust-mode-hook :append #'lsp)
