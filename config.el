@@ -25,7 +25,8 @@
 
 ;; Don't deal with the uber-hard-to-see cursor
 ;; This takes the color of the string face
-(if (eq doom-theme 'gruber-darker)
-    (let ((col "#73c936"))
-        (add-to-list 'default-frame-alist '(cursor-color . col))
-        (set-cursor-color col)))
+(defconst tysp/cursor-color "#73c936")
+(when (eq doom-theme 'gruber-darker)
+  (setq evil-normal-state-cursor `(box ,tysp/cursor-color)
+        evil-insert-state-cursor `(bar ,tysp/cursor-color)
+        evil-visual-state-cursor `(hollow ,tysp/cursor-color)))
