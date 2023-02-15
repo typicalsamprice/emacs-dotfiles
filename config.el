@@ -10,7 +10,7 @@
 
 (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 18))
 
-(setq doom-theme 'doom-molokai)
+(setq doom-theme 'gruber-darker)
 
 (setq display-line-numbers-type 'relative)
 
@@ -22,3 +22,10 @@
 (add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
 
 (add-hook! 'rust-mode-hook :append #'lsp)
+
+;; Don't deal with the uber-hard-to-see cursor
+;; This takes the color of the string face
+(if (eq doom-theme 'gruber-darker)
+    (let ((col "#73c936"))
+        (add-to-list 'default-frame-alist '(cursor-color . col))
+        (set-cursor-color col)))
